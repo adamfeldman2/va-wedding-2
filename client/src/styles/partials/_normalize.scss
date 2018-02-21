@@ -198,6 +198,16 @@ ul {
 
 body {
   color: #272727;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    ),
+    url('../assets/images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center top;
+  font-family: $font-primary;
 }
 
 .wrapper {

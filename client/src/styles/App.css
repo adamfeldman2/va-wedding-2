@@ -192,7 +192,13 @@ ul {
   list-style: none; }
 
 body {
-  color: #272727; }
+  color: #272727;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)), url("../assets/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center top;
+  font-family: "Lato", sans-serif; }
 
 .wrapper {
   max-width: 1000px;
@@ -212,4 +218,5 @@ body {
   text-align: center; }
 
 .wrapper-page-home h1 {
-  text-align: center; }
+  text-align: center;
+  font-weight: 100; }
