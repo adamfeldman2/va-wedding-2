@@ -1,18 +1,13 @@
-.wrapper-page-home {
-  position: absolute;
-  right: 50%;
-  bottom: 50%;
-  transform: translate(50%);
-  width: 100%;
+.wrapper-component-page-template {
+  margin-top: 90px;
 
-  .wrapper-content-home {
+  .wrapper-page-template-title {
     color: $black;
-    padding: 0 5%;
 
     h1 {
       text-align: center;
       font-weight: 100;
-      font-size: 7.5em;
+      font-size: 4.5em;
       margin: 0;
     }
 
@@ -20,9 +15,13 @@
       text-transform: uppercase;
       font-weight: 300;
       text-align: center;
-      font-size: 1.3em;
+      font-size: 0.88em;
       letter-spacing: $letter-spacing-regular;
-      margin-top: 7px;
+      margin: 7px 0 85px;
     }
+  }
+
+  .wrapper-page-template-content-box {
+    background-color: $white;
   }
 }

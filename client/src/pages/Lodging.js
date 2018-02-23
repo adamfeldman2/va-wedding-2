@@ -1,14 +1,14 @@
 import React from 'react';
 import PageTemplate from '../components/PageTemplate';
 
-const Contact = () => {
+const Lodging = () => {
   return (
     <PageTemplate>
-      <div className="wrapper-page-contact">
-        <p>Contact Page</p>
+      <div className="wrapper-page-lodging">
+        <p>Lodging Page</p>
       </div>
     </PageTemplate>
   );
 };
 
-export default Contact;
+export default Lodging;

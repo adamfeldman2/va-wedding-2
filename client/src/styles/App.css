@@ -193,7 +193,7 @@ ul {
 
 body {
   color: #272727;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)), url("../assets/images/bg.jpg");
+  background-image: url("../assets/images/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -205,18 +205,120 @@ body {
   padding: 0 5%;
   margin: 0 auto; }
 
-.wrapper-component-header p {
-  text-align: center; }
+.box-wrapper {
+  max-width: 720px;
+  padding: 62px;
+  margin: 0 auto; }
 
-.wrapper-component-footer p {
-  text-align: center; }
+.wrapper-button {
+  display: flex;
+  justify-content: center; }
+  .wrapper-button .button {
+    background-color: #1c1c1c;
+    letter-spacing: 2px;
+    font-size: 0.85em;
+    color: #fff;
+    padding: 13px 35px;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: opacity 0.1s linear; }
+    .wrapper-button .button:hover {
+      opacity: 0.8; }
 
-.wrapper-page-contact h1 {
-  text-align: center; }
+.wrapper-component-footer {
+  position: absolute;
+  bottom: 16px; }
+  .wrapper-component-footer p {
+    text-align: center; }
+
+.wrapper-component-header {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .wrapper-component-header ul {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .wrapper-component-header ul li {
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 3px;
+      font-size: 0.75em; }
+      .wrapper-component-header ul li a {
+        padding: 12px;
+        color: #1c1c1c; }
+        .wrapper-component-header ul li a.active, .wrapper-component-header ul li a:hover {
+          color: rgba(28, 28, 28, 0.5); }
+
+.wrapper-component-page-template {
+  margin-top: 90px; }
+  .wrapper-component-page-template .wrapper-page-template-title {
+    color: #1c1c1c; }
+    .wrapper-component-page-template .wrapper-page-template-title h1 {
+      text-align: center;
+      font-weight: 100;
+      font-size: 4.5em;
+      margin: 0; }
+    .wrapper-component-page-template .wrapper-page-template-title h5 {
+      text-transform: uppercase;
+      font-weight: 300;
+      text-align: center;
+      font-size: 0.88em;
+      letter-spacing: 3px;
+      margin: 7px 0 85px; }
+  .wrapper-component-page-template .wrapper-page-template-content-box {
+    background-color: #fff; }
+
+.wrapper-page-details h2 {
+  font-size: 1.63em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 24px; }
+
+.wrapper-page-details .start-time {
+  font-size: 1.13em;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 24px; }
+
+.wrapper-page-details .wrapper-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 24px; }
+  .wrapper-page-details .wrapper-address p {
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    margin-bottom: 5px; }
 
 .wrapper-page-four-oh-four h1 {
   text-align: center; }
 
-.wrapper-page-home h1 {
-  text-align: center;
-  font-weight: 100; }
+.wrapper-page-home {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%);
+  width: 100%; }
+  .wrapper-page-home .wrapper-content-home {
+    color: #1c1c1c;
+    padding: 0 5%; }
+    .wrapper-page-home .wrapper-content-home h1 {
+      text-align: center;
+      font-weight: 100;
+      font-size: 7.5em;
+      margin: 0; }
+    .wrapper-page-home .wrapper-content-home h5 {
+      text-transform: uppercase;
+      font-weight: 300;
+      text-align: center;
+      font-size: 1.3em;
+      letter-spacing: 3px;
+      margin-top: 7px; }

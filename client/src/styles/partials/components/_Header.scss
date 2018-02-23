@@ -1,5 +1,29 @@
 .wrapper-component-header {
-  p {
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: $letter-spacing-regular;
+      font-size: 0.75em;
+
+      a {
+        padding: 12px;
+        color: $black;
+
+        &.active,
+        &:hover {
+          color: $grey;
+        }
+      }
+    }
   }
 }

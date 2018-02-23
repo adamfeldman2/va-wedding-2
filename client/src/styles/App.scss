@@ -1,9 +1,13 @@
 @import './partials/_variables';
 @import './partials/_normalize';
 
-@import './partials/components/_Header';
 @import './partials/components/_Footer';
+@import './partials/components/_Header';
+@import './partials/components/_PageTemplate';
 
 @import './partials/pages/_Contact';
+@import './partials/pages/_Details';
+@import './partials/pages/_Lodging';
+@import './partials/pages/_RSVP';
 @import './partials/pages/_FourOhFour';
 @import './partials/pages/_Home';
