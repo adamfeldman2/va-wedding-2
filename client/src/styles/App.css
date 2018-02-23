@@ -193,11 +193,12 @@ ul {
 
 body {
   color: #272727;
-  background-image: url("../assets/images/bg.jpg");
+  background-image: url("../assets/images/background.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100vh;
-  background-position: center top;
+  background-position: center bottom;
   font-family: "Lato", sans-serif; }
 
 .wrapper {
@@ -224,6 +225,38 @@ body {
     transition: opacity 0.1s linear; }
     .wrapper-button .button:hover {
       opacity: 0.8; }
+
+.wrapper-countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; }
+  .wrapper-countdown .cell-wrapper-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 0 20px; }
+    .wrapper-countdown .cell-wrapper-countdown div {
+      font-size: 1.5em;
+      font-weight: 300;
+      letter-spacing: 3px;
+      margin-bottom: 2px; }
+    .wrapper-countdown .cell-wrapper-countdown h3 {
+      font-size: 0.68em;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+  @media (max-width: 699px) {
+    .wrapper-countdown .cell-wrapper-countdown div {
+      font-size: 2em; }
+    .wrapper-countdown .cell-wrapper-countdown h3 {
+      font-size: 0.7em; } }
+  @media (max-width: 500px) {
+    .wrapper-countdown .cell-wrapper-countdown div {
+      font-size: 1.8em; }
+    .wrapper-countdown .cell-wrapper-countdown h3 {
+      font-size: 0.6em; } }
 
 .wrapper-component-footer {
   position: absolute;
@@ -297,6 +330,11 @@ body {
     font-weight: 400;
     letter-spacing: 0.4px;
     margin-bottom: 5px; }
+
+.wrapper-page-rsvp h2 {
+  font-weight: 300;
+  font-size: 1.62em;
+  text-align: center; }
 
 .wrapper-page-four-oh-four h1 {
   text-align: center; }
