@@ -7,7 +7,7 @@ const Details = () => {
       <div className="wrapper-page-details">
         <h2>You're invited to our wedding on August 4, 2018</h2>
 
-        <p className="start-time">Ceremony &amp; Reception 6:00</p>
+        <p className="start-time">Ceremony &amp; Reception 6:00PM</p>
 
         <div className="wrapper-address">
           <p>RedCrest Golf Course</p>
