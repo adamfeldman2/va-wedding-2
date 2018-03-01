@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class RSVPForm extends React.Component {
   constructor(props) {
@@ -121,6 +122,7 @@ class RSVPForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     console.log('State: ', this.state);
+    axios.post('/api/rsvp', this.state);
   }
 
   render() {

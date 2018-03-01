@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 5000;
 // bodyParser middleware
 app.use(bodyParser.json());
 
+// routes
+require('./routes/rsvp')(app, mongoose);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
