@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 const guestSchema = mongoose.Schema({
   g1First: String,
   g1Last: String,
-  attending: Boolean,
+  attending: String,
   numAttending: String,
   g1Dinner: String,
   g1Dietary: String,
@@ -35,11 +35,7 @@ const Guest = mongoose.model('Guest', guestSchema);
 app.post('/api/rsvp', async (req, res) => {
   try {
     const newGuest = await new Guest({ ...req.body }).save();
-    res.send({
-      success: true,
-      guest1: req.body.g1First,
-      guest2: req.body.g2First
-    });
+    res.send({ success: true });
   } catch (err) {
     console.log('Error: ', err);
     res.send({ success: false });

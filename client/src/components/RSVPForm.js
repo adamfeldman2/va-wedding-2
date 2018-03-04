@@ -8,15 +8,17 @@ class RSVPForm extends React.Component {
     this.state = {
       g1First: '',
       g1Last: '',
-      attending: null,
-      numAttending: '1',
-      g1Dinner: null,
+      attending: '',
+      numAttending: '',
+      g1Dinner: '',
       g1Dietary: '',
       g2First: '',
       g2Last: '',
-      g2Dinner: null,
+      g2Dinner: '',
       g2Dietary: '',
-      message: ''
+      message: '',
+      loading: false,
+      sent: false
     };
   }
 
@@ -119,194 +121,294 @@ class RSVPForm extends React.Component {
     });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
-    console.log('State: ', this.state);
-    axios.post('/api/rsvp', this.state);
+
+    this.setState(() => {
+      return {
+        loading: true
+      };
+    });
+
+    try {
+      const res = await axios.post('/api/rsvp', {
+        g1First: this.state.g1First,
+        g1Last: this.state.g1Last,
+        attending: this.state.attending,
+        numAttending: this.state.numAttending,
+        g1Dinner: this.state.g1Dinner,
+        g1Dietary: this.state.g1Dietary,
+        g2First: this.state.g2First,
+        g2Last: this.state.g2Last,
+        g2Dinner: this.state.g2Dinner,
+        g2Dietary: this.state.g2Dietary,
+        message: this.state.message
+      });
+
+      this.setState(() => {
+        return {
+          formError: false,
+          sent: res.data.success,
+          loading: false
+        };
+      });
+    } catch (err) {
+      this.setState(() => {
+        return {
+          loading: false,
+          sent: false
+        };
+      });
+    }
   }
 
   render() {
     return (
-      <form
-        className="wrapper-component-rsvp-form"
-        onSubmit={(e) => this.onSubmit(e)}
-      >
-        <div className="wrapper-question">
-          <label htmlFor="g1First">First Name</label>
-          <input
-            type="text"
-            id="g1First"
-            onChange={(e) => this.onG1FirstChange(e)}
-          />
-          <label htmlFor="g1Last">Last Name</label>
-          <input
-            type="text"
-            id="g1Last"
-            onChange={(e) => this.onG1LastChange(e)}
-          />
-        </div>
+      <div className="wrapper-component-rsvp-form">
+        <h2>
+          {this.state.sent ? 'RSVP Received!' : 'Please RSVP by May 15, 2018'}
+        </h2>
 
-        <div className="wrapper-question">
-          <label htmlFor="attending">Will You Be Attending?</label>
-          <div
-            onChange={(e) => {
-              this.onAttendingChange(e);
-            }}
-          >
-            <input id="radio-yes" type="radio" name="attending" value={true} />
-            <label htmlFor="radio-yes">
-              Yes<span className="radio-heart" />
-            </label>
-            <input id="radio-no" type="radio" name="attending" value={false} />
-            <label htmlFor="radio-no">
-              No<span className="radio-heart" />
-            </label>
+        {this.state.sent ? (
+          <div>
+            {this.state.attending === 'true'
+              ? `Thanks ${this.state.g1First}! We'll see you ${this.state
+                  .g2First && `and ${this.state.g2First}`} on August 4th 🎉`
+              : `Thanks ${
+                  this.state.g1First
+                }. We'll miss you, but we understand.`}
           </div>
-        </div>
-
-        <div className="wrapper-question">
-          <label htmlFor="attending">How Many People In Your Party?</label>
-          <div
-            onChange={(e) => {
-              this.onNumAttendingChange(e);
-            }}
+        ) : (
+          <form
+            className="wrapper-component-rsvp-form"
+            onSubmit={(e) => this.onSubmit(e)}
           >
-            <input id="radio-1" type="radio" name="numAttending" value="1" />
-            <label htmlFor="radio-1">
-              Just Myself<span className="radio-heart" />
-            </label>
-            <input id="radio-2" type="radio" name="numAttending" value="2" />
-            <label htmlFor="radio-2">
-              Myself + 1<span className="radio-heart" />
-            </label>
-          </div>
-        </div>
+            {/* G1 First Name */}
+            <div className="wrapper-question">
+              <label htmlFor="g1First">First Name</label>
+              <input
+                type="text"
+                id="g1First"
+                onChange={(e) => this.onG1FirstChange(e)}
+              />
+              {/* G1 Last Name */}
+              <label htmlFor="g1Last">Last Name</label>
+              <input
+                type="text"
+                id="g1Last"
+                onChange={(e) => this.onG1LastChange(e)}
+              />
+            </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="attending">What Would You Like For Dinner?</label>
-          <div
-            onChange={(e) => {
-              this.onG1DinnerChange(e);
-            }}
-          >
-            <input
-              id="radio-chicken-beef-1"
-              type="radio"
-              name="g1Dinner"
-              value="chicken/beef"
-            />
-            <label htmlFor="radio-chicken-beef-1">
-              Chicken/Beef<span className="radio-heart" />
-            </label>
-            <input
-              id="radio-salmon-1"
-              type="radio"
-              name="g1Dinner"
-              value="salmon"
-            />
-            <label htmlFor="radio-salmon-1">
-              Salmon<span className="radio-heart" />
-            </label>
-            <input
-              id="radio-veg-1"
-              type="radio"
-              name="g1Dinner"
-              value="vegetarian"
-            />
-            <label htmlFor="radio-veg-1">
-              Vegetarian<span className="radio-heart" />
-            </label>
-          </div>
-        </div>
+            {/* Attending */}
+            <div className="wrapper-question">
+              <label htmlFor="attending">Will You Be Attending?</label>
+              <div
+                onChange={(e) => {
+                  this.onAttendingChange(e);
+                }}
+              >
+                <input
+                  id="radio-yes"
+                  type="radio"
+                  name="attending"
+                  value={true}
+                />
+                <label htmlFor="radio-yes">
+                  Yes<span className="radio-heart" />
+                </label>
+                <input
+                  id="radio-no"
+                  type="radio"
+                  name="attending"
+                  value={false}
+                />
+                <label htmlFor="radio-no">
+                  No<span className="radio-heart" />
+                </label>
+              </div>
+            </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="g1Dietary">
-            Your Dietary Restrictions (Optional):
-          </label>
-          <input
-            type="text"
-            id="g1Dietary"
-            onChange={(e) => this.onG1DietaryChange(e)}
-          />
-        </div>
+            {this.state.attending === 'true' && (
+              <div>
+                {/* Num People? */}
+                <div className="wrapper-question">
+                  <label htmlFor="numPeople">
+                    How Many People In Your Party?
+                  </label>
+                  <div
+                    onChange={(e) => {
+                      this.onNumAttendingChange(e);
+                    }}
+                  >
+                    <input
+                      id="radio-1"
+                      type="radio"
+                      name="numPeople"
+                      value="1"
+                    />
+                    <label htmlFor="radio-1">
+                      Just Myself<span className="radio-heart" />
+                    </label>
+                    <input
+                      id="radio-2"
+                      type="radio"
+                      name="numPeople"
+                      value="2"
+                    />
+                    <label htmlFor="radio-2">
+                      Myself + 1<span className="radio-heart" />
+                    </label>
+                  </div>
+                </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="g2First">Guest's First Name</label>
-          <input
-            type="text"
-            id="g2First"
-            onChange={(e) => this.onG2FirstChange(e)}
-          />
-          <label htmlFor="g2Last">Guest's Last Name</label>
-          <input
-            type="text"
-            id="g2Last"
-            onChange={(e) => this.onG2LastChange(e)}
-          />
-        </div>
+                {/* G1 Dinner */}
+                <div className="wrapper-question">
+                  <label htmlFor="g1Dinner">
+                    What Would You Like For Dinner?
+                  </label>
+                  <div
+                    onChange={(e) => {
+                      this.onG1DinnerChange(e);
+                    }}
+                  >
+                    <input
+                      id="radio-chicken-beef-1"
+                      type="radio"
+                      name="g1Dinner"
+                      value="chicken/beef"
+                    />
+                    <label htmlFor="radio-chicken-beef-1">
+                      Chicken/Beef<span className="radio-heart" />
+                    </label>
+                    <input
+                      id="radio-salmon-1"
+                      type="radio"
+                      name="g1Dinner"
+                      value="salmon"
+                    />
+                    <label htmlFor="radio-salmon-1">
+                      Salmon<span className="radio-heart" />
+                    </label>
+                    <input
+                      id="radio-veg-1"
+                      type="radio"
+                      name="g1Dinner"
+                      value="vegetarian"
+                    />
+                    <label htmlFor="radio-veg-1">
+                      Vegetarian<span className="radio-heart" />
+                    </label>
+                  </div>
+                </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="attending">
-            What Would {this.state.g2First ? this.state.g2First : 'Your Guest'}{' '}
-            Like For Dinner?
-          </label>
-          <div
-            onChange={(e) => {
-              this.onG2DinnerChange(e);
-            }}
-          >
-            <input
-              id="radio-chicken-beef-2"
-              type="radio"
-              name="g2Dinner"
-              value="chicken/beef"
-            />
-            <label htmlFor="radio-chicken-beef-2">
-              Chicken/Beef<span className="radio-heart" />
-            </label>
-            <input
-              id="radio-salmon-2"
-              type="radio"
-              name="g2Dinner"
-              value="salmon"
-            />
-            <label htmlFor="radio-salmon-2">
-              Salmon<span className="radio-heart" />
-            </label>
-            <input
-              id="radio-veg-2"
-              type="radio"
-              name="g2Dinner"
-              value="vegetarian"
-            />
-            <label htmlFor="radio-veg-2">
-              Vegetarian<span className="radio-heart" />
-            </label>
-          </div>
-        </div>
+                {/* G1 Dietary */}
+                <div className="wrapper-question">
+                  <label htmlFor="g1Dietary">
+                    Your Dietary Restrictions (Optional):
+                  </label>
+                  <input
+                    type="text"
+                    id="g1Dietary"
+                    onChange={(e) => this.onG1DietaryChange(e)}
+                  />
+                </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="g2Dietary">
-            {this.state.g2First ? this.state.g2First : 'Your Guest'}'s Dietary
-            Restrictions (Optional):
-          </label>
-          <input
-            type="text"
-            id="g2Dietary"
-            onChange={(e) => this.onG2DietaryChange(e)}
-          />
-        </div>
+                {this.state.numAttending === '2' && (
+                  <div>
+                    {/* G2 First Name */}
+                    <div className="wrapper-question">
+                      <label htmlFor="g2First">Guest's First Name</label>
+                      <input
+                        type="text"
+                        id="g2First"
+                        onChange={(e) => this.onG2FirstChange(e)}
+                      />
+                      {/* G2 Last Name */}
+                      <label htmlFor="g2Last">Guest's Last Name</label>
+                      <input
+                        type="text"
+                        id="g2Last"
+                        onChange={(e) => this.onG2LastChange(e)}
+                      />
+                    </div>
 
-        <div className="wrapper-question">
-          <label htmlFor="message">Message (Optional):</label>
-          <textarea
-            cols="30"
-            rows="5"
-            onChange={(e) => this.onMessageChange(e)}
-          />
-          <button className="button-style">Submit</button>
-        </div>
-      </form>
+                    {/* G2 Dinner */}
+                    <div className="wrapper-question">
+                      <label htmlFor="g2Dinner">
+                        What Would{' '}
+                        {this.state.g2First ? this.state.g2First : 'Your Guest'}{' '}
+                        Like For Dinner?
+                      </label>
+                      <div
+                        onChange={(e) => {
+                          this.onG2DinnerChange(e);
+                        }}
+                      >
+                        <input
+                          id="radio-chicken-beef-2"
+                          type="radio"
+                          name="g2Dinner"
+                          value="chicken/beef"
+                        />
+                        <label htmlFor="radio-chicken-beef-2">
+                          Chicken/Beef<span className="radio-heart" />
+                        </label>
+                        <input
+                          id="radio-salmon-2"
+                          type="radio"
+                          name="g2Dinner"
+                          value="salmon"
+                        />
+                        <label htmlFor="radio-salmon-2">
+                          Salmon<span className="radio-heart" />
+                        </label>
+                        <input
+                          id="radio-veg-2"
+                          type="radio"
+                          name="g2Dinner"
+                          value="vegetarian"
+                        />
+                        <label htmlFor="radio-veg-2">
+                          Vegetarian<span className="radio-heart" />
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* G2 Dietary */}
+                    <div className="wrapper-question">
+                      <label htmlFor="g2Dietary">
+                        {this.state.g2First ? this.state.g2First : 'Your Guest'}'s
+                        Dietary Restrictions (Optional):
+                      </label>
+                      <input
+                        type="text"
+                        id="g2Dietary"
+                        onChange={(e) => this.onG2DietaryChange(e)}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Message */}
+            <div className="wrapper-question">
+              <label htmlFor="message">Message (Optional):</label>
+              <textarea
+                cols="30"
+                rows="5"
+                onChange={(e) => this.onMessageChange(e)}
+              />
+              {this.state.loading ? (
+                <div>Sending...</div>
+              ) : (
+                <button className="button-style">Submit</button>
+              )}
+            </div>
+          </form>
+        )}
+      </div>
     );
   }
 }
