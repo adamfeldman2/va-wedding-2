@@ -2,9 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const keys = require('./config/keys');
 
-// mongoose.connect(keys.mongoURI);
-// console.log('Database Connection ⚡️⚡️ : ', mongoose.connection.readyState);
+mongoose.connect(keys.mongoURI);
+console.log('Database Connection ⚡️⚡️ : ', mongoose.connection.readyState);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,8 +13,38 @@ const PORT = process.env.PORT || 5000;
 // bodyParser middleware
 app.use(bodyParser.json());
 
-// routes
-require('./routes/rsvp')(app, mongoose);
+// guest schema
+const guestSchema = mongoose.Schema({
+  g1First: String,
+  g1Last: String,
+  attending: Boolean,
+  numAttending: String,
+  g1Dinner: String,
+  g1Dietary: String,
+  g2First: String,
+  g2Last: String,
+  g2Dinner: String,
+  g2Dietary: String,
+  message: String
+});
+
+// rsvp model
+const Guest = mongoose.model('Guest', guestSchema);
+
+// post rsvp to db
+app.post('/api/rsvp', async (req, res) => {
+  try {
+    const newGuest = await new Guest({ ...req.body }).save();
+    res.send({
+      success: true,
+      guest1: req.body.g1First,
+      guest2: req.body.g2First
+    });
+  } catch (err) {
+    console.log('Error: ', err);
+    res.send({ success: false });
+  }
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

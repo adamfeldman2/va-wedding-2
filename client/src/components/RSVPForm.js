@@ -9,7 +9,7 @@ class RSVPForm extends React.Component {
       g1First: '',
       g1Last: '',
       attending: null,
-      numAttending: 1,
+      numAttending: '1',
       g1Dinner: null,
       g1Dietary: '',
       g2First: '',
