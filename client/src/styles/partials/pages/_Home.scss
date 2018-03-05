@@ -1,18 +1,18 @@
 .wrapper-page-home {
   position: absolute;
   right: 50%;
-  bottom: 50%;
+  bottom: 49%;
   transform: translate(50%);
   width: 100%;
 
   .wrapper-content-home {
     color: $black;
-    padding: 0 5%;
 
     h1 {
       text-align: center;
       font-weight: 100;
-      font-size: 7.5em;
+      font-size: 6em;
+      padding: 0 5%;
       margin: 0;
     }
 
@@ -20,9 +20,68 @@
       text-transform: uppercase;
       font-weight: 300;
       text-align: center;
-      font-size: 1.3em;
+      font-size: 0.88em;
       letter-spacing: $letter-spacing-regular;
       margin-top: 7px;
+      display: none;
+    }
+  }
+
+  .wrapper-confetti {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    top: 21px;
+    display: flex;
+    justify-content: center;
+
+    .button {
+      background-color: transparent;
+      letter-spacing: $letter-spacing-light-regular;
+      font-size: 0.85em;
+      color: $black-2;
+      border: 0;
+      padding: 13px 35px;
+      text-transform: uppercase;
+      font-weight: 400;
+      cursor: pointer;
+      outline: 0;
+      box-shadow: 0px 0px 1px transparentize($black-2, 0.8);
+      transition: box-shadow 0.1s linear;
+
+      &:hover {
+        box-shadow: 0px 0px 4px transparentize($black-2, 0.65);
+      }
+    }
+  }
+
+  @media (max-width: 826px) {
+    .wrapper-content-home {
+      h1 {
+        margin-bottom: 22px;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .wrapper-content-home {
+      h1 {
+        font-size: 4.2em;
+      }
+
+      h5 {
+        display: block;
+      }
+    }
+
+    .wrapper-confetti {
+      top: 32px;
+
+      .button {
+        font-size: 0.72em;
+        padding: 13px 28px;
+      }
     }
   }
 }

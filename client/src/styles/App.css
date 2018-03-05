@@ -218,13 +218,19 @@ body {
     background-color: #1c1c1c;
     letter-spacing: 2px;
     font-size: 0.85em;
-    color: #fff;
     padding: 13px 35px;
+    color: #fff;
     text-transform: uppercase;
     font-weight: 400;
+    cursor: pointer;
+    outline: 0;
     transition: opacity 0.1s linear; }
     .wrapper-button .button:hover {
       opacity: 0.8; }
+    @media (max-width: 500px) {
+      .wrapper-button .button {
+        font-size: 0.72em;
+        padding: 13px 28px; } }
 
 .wrapper-countdown {
   display: flex;
@@ -247,16 +253,9 @@ body {
       font-weight: 300;
       letter-spacing: 1px;
       text-transform: uppercase; }
-  @media (max-width: 699px) {
-    .wrapper-countdown .cell-wrapper-countdown div {
-      font-size: 2em; }
-    .wrapper-countdown .cell-wrapper-countdown h3 {
-      font-size: 0.7em; } }
   @media (max-width: 500px) {
-    .wrapper-countdown .cell-wrapper-countdown div {
-      font-size: 1.8em; }
-    .wrapper-countdown .cell-wrapper-countdown h3 {
-      font-size: 0.6em; } }
+    .wrapper-countdown {
+      display: none; } }
 
 .wrapper-component-footer {
   position: absolute;
@@ -291,7 +290,7 @@ body {
     .wrapper-component-page-template .wrapper-page-template-title h1 {
       text-align: center;
       font-weight: 100;
-      font-size: 4.5em;
+      font-size: 3.7em;
       margin: 0; }
     .wrapper-component-page-template .wrapper-page-template-title h5 {
       text-transform: uppercase;
@@ -346,21 +345,58 @@ body {
 .wrapper-page-home {
   position: absolute;
   right: 50%;
-  bottom: 50%;
+  bottom: 49%;
   transform: translate(50%);
   width: 100%; }
   .wrapper-page-home .wrapper-content-home {
-    color: #1c1c1c;
-    padding: 0 5%; }
+    color: #1c1c1c; }
     .wrapper-page-home .wrapper-content-home h1 {
       text-align: center;
       font-weight: 100;
-      font-size: 7.5em;
+      font-size: 6em;
+      padding: 0 5%;
       margin: 0; }
     .wrapper-page-home .wrapper-content-home h5 {
       text-transform: uppercase;
       font-weight: 300;
       text-align: center;
-      font-size: 1.3em;
+      font-size: 0.88em;
       letter-spacing: 3px;
-      margin-top: 7px; }
+      margin-top: 7px;
+      display: none; }
+  .wrapper-page-home .wrapper-confetti {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    top: 21px;
+    display: flex;
+    justify-content: center; }
+    .wrapper-page-home .wrapper-confetti .button {
+      background-color: transparent;
+      letter-spacing: 2px;
+      font-size: 0.85em;
+      color: #1c1c1c;
+      border: 0;
+      padding: 13px 35px;
+      text-transform: uppercase;
+      font-weight: 400;
+      cursor: pointer;
+      outline: 0;
+      box-shadow: 0px 0px 1px rgba(28, 28, 28, 0.2);
+      transition: box-shadow 0.1s linear; }
+      .wrapper-page-home .wrapper-confetti .button:hover {
+        box-shadow: 0px 0px 4px rgba(28, 28, 28, 0.35); }
+  @media (max-width: 826px) {
+    .wrapper-page-home .wrapper-content-home h1 {
+      margin-bottom: 22px; } }
+  @media (max-width: 500px) {
+    .wrapper-page-home .wrapper-content-home h1 {
+      font-size: 4.2em; }
+    .wrapper-page-home .wrapper-content-home h5 {
+      display: block; }
+    .wrapper-page-home .wrapper-confetti {
+      top: 32px; }
+      .wrapper-page-home .wrapper-confetti .button {
+        font-size: 0.72em;
+        padding: 13px 28px; } }

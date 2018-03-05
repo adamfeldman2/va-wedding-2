@@ -227,14 +227,21 @@ body {
     background-color: $black-2;
     letter-spacing: $letter-spacing-light-regular;
     font-size: 0.85em;
-    color: $white;
     padding: 13px 35px;
+    color: $white;
     text-transform: uppercase;
     font-weight: 400;
+    cursor: pointer;
+    outline: 0;
     transition: opacity 0.1s linear;
 
     &:hover {
       opacity: 0.8;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 0.72em;
+      padding: 13px 28px;
     }
   }
 }

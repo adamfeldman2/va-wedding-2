@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className="wrapper-component-header">
+    <div className="wrapper-component-header wrapper">
       <ul className="wrapper">
         <li>
           <NavLink to="/details" activeClassName="active">

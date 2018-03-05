@@ -3,7 +3,18 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className="wrapper-component-footer">
-      <p>This is the footer</p>
+      <span>
+        Built by:{' '}
+        <a
+          href="http://adamfeldman.io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          The Groom
+        </a>
+      </span>
+
+      <span>Design inspiration by: Sqaurespace</span>
     </div>
   );
 };
