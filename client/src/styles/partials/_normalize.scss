@@ -215,7 +215,7 @@ body {
 
 .box-wrapper {
   max-width: 720px;
-  padding: 62px;
+  padding: 5%;
   margin: 0 auto;
 }
 
@@ -226,13 +226,14 @@ body {
   .button {
     background-color: $black-2;
     letter-spacing: $letter-spacing-light-regular;
-    font-size: 0.85em;
+    font-size: 13.5px;
     padding: 13px 35px;
     color: $white;
     text-transform: uppercase;
     font-weight: 400;
     cursor: pointer;
     outline: 0;
+    border: 0;
     transition: opacity 0.1s linear;
 
     &:hover {

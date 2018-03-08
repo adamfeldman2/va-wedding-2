@@ -2,5 +2,79 @@
   .wrapper-question {
     display: block;
     margin-top: 30px;
+    font-size: 0.8em;
+
+    .wrapper-horizontal-questions {
+      display: flex;
+      justify-content: space-between;
+
+      .wrapper-horizontal-question {
+        width: 49%;
+      }
+    }
+
+    &.wrapper-radio-buttons-outer {
+      display: flex;
+
+      label {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .wrapper-radio-buttons-inner {
+        display: flex;
+
+        input[type='radio'] {
+          display: none;
+        }
+
+        input[type='radio']:checked + label > .radio-heart {
+          background-image: url('../assets/images/heart-filled.svg');
+        }
+
+        label {
+          display: flex;
+          margin-right: 20px;
+          align-items: center;
+
+          .radio-heart {
+            background-image: url('../assets/images/heart-unfilled.svg');
+            height: 50px;
+            width: 50px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            top: 5px;
+            right: 6px;
+          }
+        }
+      }
+    }
+
+    textarea,
+    input {
+      font-family: $font-primary;
+      padding: 10px;
+      font-size: 1.1em;
+      width: 100%;
+      outline: 0;
+      border: 1px solid $grey-2;
+      background-color: $grey-1;
+      transition: background-color 0.3s;
+      margin: 4px 0 10px;
+
+      &:focus {
+        background-color: $white;
+      }
+    }
+
+    input {
+      box-sizing: border-box;
+    }
+  }
+
+  .wrapper-button {
+    margin-top: 24px;
   }
 }

@@ -1,5 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import Confetti from 'react-dom-confetti';
+
+const confettiConfig = {
+  angle: 85,
+  spread: 65,
+  startVelocity: 20,
+  elementCount: 120,
+  decay: 0.95
+};
 
 class RSVPForm extends React.Component {
   constructor(props) {
@@ -18,8 +27,29 @@ class RSVPForm extends React.Component {
       g2Dietary: '',
       message: '',
       loading: false,
-      sent: false
+      sent: false,
+      confetti: true
     };
+
+    this.shootConfetti = this.shootConfetti.bind(this);
+  }
+
+  shootConfetti() {
+    setTimeout(() => {
+      this.setState(() => {
+        return {
+          confetti: false
+        };
+      });
+    }, 2);
+
+    setTimeout(() => {
+      this.setState(() => {
+        return {
+          confetti: true
+        };
+      });
+    }, 10);
   }
 
   onG1FirstChange(e) {
@@ -145,13 +175,16 @@ class RSVPForm extends React.Component {
         message: this.state.message
       });
 
-      this.setState(() => {
-        return {
-          formError: false,
-          sent: res.data.success,
-          loading: false
-        };
-      });
+      // allow 3s for user to watch confetti
+      setTimeout(() => {
+        this.setState(() => {
+          return {
+            formError: false,
+            sent: res.data.success,
+            loading: false
+          };
+        });
+      }, 3000);
     } catch (err) {
       this.setState(() => {
         return {
@@ -185,25 +218,32 @@ class RSVPForm extends React.Component {
           >
             {/* G1 First Name */}
             <div className="wrapper-question">
-              <label htmlFor="g1First">First Name</label>
-              <input
-                type="text"
-                id="g1First"
-                onChange={(e) => this.onG1FirstChange(e)}
-              />
-              {/* G1 Last Name */}
-              <label htmlFor="g1Last">Last Name</label>
-              <input
-                type="text"
-                id="g1Last"
-                onChange={(e) => this.onG1LastChange(e)}
-              />
+              <div className="wrapper-horizontal-questions">
+                <div className="wrapper-horizontal-question">
+                  <label htmlFor="g1First">First Name</label>
+                  <input
+                    type="text"
+                    id="g1First"
+                    onChange={(e) => this.onG1FirstChange(e)}
+                  />
+                </div>
+                {/* G1 Last Name */}
+                <div className="wrapper-horizontal-question">
+                  <label htmlFor="g1Last">Last Name</label>
+                  <input
+                    type="text"
+                    id="g1Last"
+                    onChange={(e) => this.onG1LastChange(e)}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Attending */}
-            <div className="wrapper-question">
+            <div className="wrapper-question wrapper-radio-buttons-outer">
               <label htmlFor="attending">Will You Be Attending?</label>
               <div
+                className="wrapper-radio-buttons-inner"
                 onChange={(e) => {
                   this.onAttendingChange(e);
                 }}
@@ -232,11 +272,12 @@ class RSVPForm extends React.Component {
             {this.state.attending === 'true' && (
               <div>
                 {/* Num People? */}
-                <div className="wrapper-question">
+                <div className="wrapper-question wrapper-radio-buttons-outer">
                   <label htmlFor="numPeople">
                     How Many People In Your Party?
                   </label>
                   <div
+                    className="wrapper-radio-buttons-inner"
                     onChange={(e) => {
                       this.onNumAttendingChange(e);
                     }}
@@ -263,11 +304,12 @@ class RSVPForm extends React.Component {
                 </div>
 
                 {/* G1 Dinner */}
-                <div className="wrapper-question">
+                <div className="wrapper-question wrapper-radio-buttons-outer">
                   <label htmlFor="g1Dinner">
                     What Would You Like For Dinner?
                   </label>
                   <div
+                    className="wrapper-radio-buttons-inner"
                     onChange={(e) => {
                       this.onG1DinnerChange(e);
                     }}
@@ -318,29 +360,36 @@ class RSVPForm extends React.Component {
                   <div>
                     {/* G2 First Name */}
                     <div className="wrapper-question">
-                      <label htmlFor="g2First">Guest's First Name</label>
-                      <input
-                        type="text"
-                        id="g2First"
-                        onChange={(e) => this.onG2FirstChange(e)}
-                      />
-                      {/* G2 Last Name */}
-                      <label htmlFor="g2Last">Guest's Last Name</label>
-                      <input
-                        type="text"
-                        id="g2Last"
-                        onChange={(e) => this.onG2LastChange(e)}
-                      />
+                      <div className="wrapper-horizontal-questions">
+                        <div className="wrapper-horizontal-question">
+                          <label htmlFor="g2First">Guest's First Name</label>
+                          <input
+                            type="text"
+                            id="g2First"
+                            onChange={(e) => this.onG2FirstChange(e)}
+                          />
+                        </div>
+                        {/* G2 Last Name */}
+                        <div className="wrapper-horizontal-question">
+                          <label htmlFor="g2Last">Guest's Last Name</label>
+                          <input
+                            type="text"
+                            id="g2Last"
+                            onChange={(e) => this.onG2LastChange(e)}
+                          />
+                        </div>
+                      </div>
                     </div>
 
                     {/* G2 Dinner */}
-                    <div className="wrapper-question">
+                    <div className="wrapper-question wrapper-radio-buttons-outer">
                       <label htmlFor="g2Dinner">
                         What Would{' '}
                         {this.state.g2First ? this.state.g2First : 'Your Guest'}{' '}
                         Like For Dinner?
                       </label>
                       <div
+                        className="wrapper-radio-buttons-inner"
                         onChange={(e) => {
                           this.onG2DinnerChange(e);
                         }}
@@ -394,17 +443,23 @@ class RSVPForm extends React.Component {
 
             {/* Message */}
             <div className="wrapper-question">
-              <label htmlFor="message">Message (Optional):</label>
+              <label htmlFor="message">Message:</label>
               <textarea
                 cols="30"
                 rows="5"
                 onChange={(e) => this.onMessageChange(e)}
               />
-              {this.state.loading ? (
-                <div>Sending...</div>
-              ) : (
-                <button className="button-style">Submit</button>
-              )}
+
+            {(this.state.attending === 'false' || ((this.state.numAttending === '1' && this.state.g1Dinner || this.state.numAttending === '2' && this.state.g2Dinner))) && (<div className="wrapper-confetti wrapper-button">
+                <button className="button" onClick={this.shootConfetti}>
+                  {this.state.loading ? 'Sending...' : 'Submit'}
+                  <Confetti
+                    active={this.state.confetti}
+                    config={confettiConfig}
+                  />
+                </button>
+              </div>)}
+              
             </div>
           </form>
         )}

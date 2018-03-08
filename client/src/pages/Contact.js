@@ -11,13 +11,13 @@ const Contact = () => {
         </h2>
         <div className="wrapper-content">
           <div className="wrapper-viv">
-            <h3>Viviana</h3>
+            <h3>Viviana Gallant</h3>
             <p>viviana.gallant@gmail.com</p>
             <a href="tel:647-537-6777">647-537-6777</a>
           </div>
 
           <div className="wrapper-adam">
-            <h3>Adam</h3>
+            <h3>Adam Feldman</h3>
             <p>feldman238@gmail.com</p>
             <a href="tel:647-860-6767">647-860-6767</a>
           </div>
