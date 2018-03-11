@@ -84,4 +84,25 @@
       }
     }
   }
+
+  .button-rsvp {
+    display: flex;
+    justify-content: center;
+    width: 143px;
+    border: 1px solid $black;
+    color: $black;
+    padding: 9.5px 0;
+    font-size: 1.01em;
+    text-transform: uppercase;
+    position: absolute;
+    right: 50%;
+    bottom: -72px;
+    transform: translateX(50%);
+    transition: 0.13s linear;
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+  }
 }

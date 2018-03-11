@@ -358,6 +358,40 @@ body {
 .wrapper-component-rsvp-form .wrapper-button {
   margin-top: 24px; }
 
+.wrapper-page-contact h2 {
+  font-weight: 400;
+  font-size: 1.4em;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 1.4em; }
+
+.wrapper-page-contact .wrapper-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .wrapper-page-contact .wrapper-content h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.4px; }
+  .wrapper-page-contact .wrapper-content p {
+    text-align: center;
+    margin-top: 7px;
+    font-size: 1.09em;
+    font-weight: 300;
+    letter-spacing: 0.4px; }
+  .wrapper-page-contact .wrapper-content a {
+    color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-decoration: underline;
+    margin-top: 7px;
+    font-size: 1.09em;
+    font-weight: 300; }
+    .wrapper-page-contact .wrapper-content a:hover {
+      color: rgba(28, 28, 28, 0.5); }
+
 .wrapper-page-details h2 {
   font-size: 1.63em;
   font-weight: 300;
@@ -385,6 +419,42 @@ body {
     font-weight: 400;
     letter-spacing: 0.4px;
     margin-bottom: 5px; }
+
+.wrapper-page-lodging {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .wrapper-page-lodging .hotel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .wrapper-page-lodging .hotel img {
+      max-width: 147px; }
+    .wrapper-page-lodging .hotel p {
+      text-align: center; }
+      .wrapper-page-lodging .hotel p:nth-child(2) {
+        margin: 14px 0 11px; }
+      .wrapper-page-lodging .hotel p:nth-child(3) {
+        font-size: 1.1em; }
+      .wrapper-page-lodging .hotel p:nth-child(4) {
+        margin-bottom: 9px;
+        font-size: 1.1em; }
+      .wrapper-page-lodging .hotel p:nth-child(5), .wrapper-page-lodging .hotel p:nth-child(6) {
+        font-size: 0.95em; }
+      .wrapper-page-lodging .hotel p a {
+        color: #1c1c1c;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        text-decoration: underline;
+        margin-top: 7px;
+        font-size: 1.09em;
+        font-weight: 300; }
+        .wrapper-page-lodging .hotel p a:hover {
+          color: rgba(28, 28, 28, 0.5); }
+    .wrapper-page-lodging .hotel .wrapper-button {
+      margin-top: 26px; }
 
 .wrapper-page-rsvp h2 {
   font-weight: 300;
@@ -452,3 +522,20 @@ body {
       .wrapper-page-home .wrapper-confetti .button {
         font-size: 0.72em;
         padding: 13px 28px; } }
+  .wrapper-page-home .button-rsvp {
+    display: flex;
+    justify-content: center;
+    width: 143px;
+    border: 1px solid #1c1c1c;
+    color: #1c1c1c;
+    padding: 9.5px 0;
+    font-size: 1.01em;
+    text-transform: uppercase;
+    position: absolute;
+    right: 50%;
+    bottom: -72px;
+    transform: translateX(50%);
+    transition: 0.13s linear; }
+    .wrapper-page-home .button-rsvp:hover {
+      background-color: #1c1c1c;
+      color: #fff; }

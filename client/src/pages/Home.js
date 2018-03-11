@@ -10,6 +10,9 @@ const Home = () => {
         <h5>August 4, 2018</h5>
         <Countdown endDate={'August 4, 2018 18:00'} />
       </Link>
+      <Link className="button-rsvp" to="/rsvp">
+        RSVP Now
+      </Link>
     </div>
   );
 };

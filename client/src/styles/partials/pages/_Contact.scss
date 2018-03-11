@@ -1,2 +1,45 @@
 .wrapper-page-contact {
+  h2 {
+    font-weight: 400;
+    font-size: 1.4em;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  .wrapper-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    h3 {
+      font-size: 1.5em;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: $letter-spacing-extra-light;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 7px;
+      font-size: 1.09em;
+      font-weight: 300;
+      letter-spacing: $letter-spacing-extra-light;
+    }
+
+    a {
+      color: $black;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      text-decoration: underline;
+      margin-top: 7px;
+      font-size: 1.09em;
+      font-weight: 300;
+
+      &:hover {
+        color: $grey-3;
+      }
+    }
+  }
 }
