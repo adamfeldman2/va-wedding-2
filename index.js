@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
 mongoose.connect(keys.mongoURI);
-console.log('Database Connection ⚡️⚡️ : ', mongoose.connection.readyState);
+console.log('Database Connection ⚡️ : ', mongoose.connection.readyState);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
