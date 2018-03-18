@@ -217,6 +217,10 @@ body {
   max-width: 720px;
   padding: 5%;
   margin: 0 auto;
+
+  @media (max-width: 500px) {
+    padding: 10%;
+  }
 }
 
 .wrapper-button {

@@ -10,12 +10,21 @@ class Header extends React.Component {
     };
 
     this.onHamburgerClick = this.onHamburgerClick.bind(this);
+    this.onNavLinkClick = this.onNavLinkClick.bind(this);
   }
 
   onHamburgerClick() {
     this.setState((prevState) => {
       return {
         hamburgerActive: !prevState.hamburgerActive
+      };
+    });
+  }
+
+  onNavLinkClick() {
+    this.setState(() => {
+      return {
+        hamburgerActive: false
       };
     });
   }
@@ -35,27 +44,27 @@ class Header extends React.Component {
 
         <ul className={`wrapper ${this.state.hamburgerActive ? 'active' : ''}`}>
           <li>
-            <NavLink to="/" className="nav-link-home" onClick={this.onHamburgerClick}>
+            <NavLink to="/" className="nav-link-home" onClick={this.onNavLinkClick}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/details" activeClassName="active" onClick={this.onHamburgerClick}>
+            <NavLink to="/details" activeClassName="active" onClick={this.onNavLinkClick}>
               Details
             </NavLink>
           </li>
           <li>
-            <NavLink to="/lodging" activeClassName="active" onClick={this.onHamburgerClick}>
+            <NavLink to="/lodging" activeClassName="active" onClick={this.onNavLinkClick}>
               Lodging
             </NavLink>
           </li>
           <li>
-            <NavLink to="/rsvp" activeClassName="active" onClick={this.onHamburgerClick}>
+            <NavLink to="/rsvp" activeClassName="active" onClick={this.onNavLinkClick}>
               RSVP
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" activeClassName="active" onClick={this.onHamburgerClick}>
+            <NavLink to="/contact" activeClassName="active" onClick={this.onNavLinkClick}>
               Contact
             </NavLink>
           </li>

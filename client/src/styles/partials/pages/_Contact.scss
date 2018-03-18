@@ -5,6 +5,7 @@
     margin-bottom: 50px;
     text-align: center;
     font-size: 1.4em;
+    line-height: 1.4;
   }
 
   .wrapper-content {
@@ -40,6 +41,23 @@
       &:hover {
         color: $grey-3;
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrapper-content {
+      flex-direction: column;
+    }
+
+    .wrapper-viv {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 1.3em;
+      margin-bottom: 38px;
     }
   }
 }

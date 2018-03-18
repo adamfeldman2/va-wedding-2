@@ -1,5 +1,5 @@
 .wrapper-component-page-template {
-  margin: 90px 0;
+  padding: 90px 0;
 
   .wrapper-page-template-title {
     color: $black;
@@ -23,5 +23,25 @@
 
   .wrapper-page-template-content-box {
     background-color: $white;
+  }
+
+  @media (max-width: 865px) {
+    .wrapper-page-template-title {
+      h1 {
+        padding: 0 4%;
+      }
+    }
+
+    .wrapper-page-template-content-box {
+      margin: 0 4%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .wrapper-page-template-title {
+      h5 {
+        margin: 7px 0 55px;
+      }
+    }
   }
 }

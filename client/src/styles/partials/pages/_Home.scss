@@ -105,4 +105,8 @@
       color: $white;
     }
   }
+
+  @media (max-width: 500px) {
+    bottom: 46%;
+  }
 }

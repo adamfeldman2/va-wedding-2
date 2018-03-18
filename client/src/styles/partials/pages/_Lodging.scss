@@ -22,6 +22,7 @@
 
       &:nth-child(3) {
         font-size: 1.1em;
+        margin-bottom: 4px;
       }
 
       &:nth-child(4) {
@@ -52,6 +53,14 @@
 
     .wrapper-button {
       margin-top: 26px;
+    }
+  }
+
+  @media (max-width: 594px) {
+    flex-direction: column;
+
+    .hotel:first-of-type {
+      margin-bottom: 75px;
     }
   }
 }
