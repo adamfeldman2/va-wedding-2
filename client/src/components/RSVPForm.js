@@ -197,11 +197,11 @@ class RSVPForm extends React.Component {
 
   render() {
     return (
-      <div className="wrapper-component-rsvp-form">
+      <div className={`wrapper-component-rsvp-form ${this.state.sent ? 'sent' : ''}`}>
         <h2>{this.state.sent ? 'RSVP Received!' : 'Please RSVP by May 15, 2018'}</h2>
 
         {this.state.sent ? (
-          <div>
+          <div className="wrapper-rsvp-sent-content">
             {this.state.attending === 'true'
               ? `Thanks ${this.state.g1First}! We'll see you ${this.state.g2First &&
                   `and ${this.state.g2First}`} on August 4th 🎉`

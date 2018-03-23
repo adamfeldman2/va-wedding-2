@@ -423,6 +423,20 @@ body {
 .wrapper-component-rsvp-form .wrapper-button {
   margin-top: 24px; }
 
+.wrapper-component-rsvp-form.sent {
+  padding: 30px 0; }
+  .wrapper-component-rsvp-form.sent .wrapper-rsvp-sent-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 1.15em;
+    line-height: 1.4; }
+  @media (max-width: 600px) {
+    .wrapper-component-rsvp-form.sent .wrapper-rsvp-sent-content {
+      font-size: 1.05em;
+      text-align: center; } }
+
 .wrapper-page-contact h2 {
   font-weight: 400;
   font-size: 1.4em;
@@ -561,7 +575,7 @@ body {
 
 .wrapper-page-rsvp h2 {
   font-weight: 300;
-  font-size: 1.62em;
+  font-size: 1.7em;
   text-align: center; }
 
 .wrapper-page-four-oh-four h1 {
