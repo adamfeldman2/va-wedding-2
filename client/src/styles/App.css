@@ -212,7 +212,7 @@ body {
   margin: 0 auto; }
   @media (max-width: 500px) {
     .box-wrapper {
-      padding: 10%; } }
+      padding: 10% 6%; } }
 
 .wrapper-button {
   display: flex;
@@ -378,12 +378,27 @@ body {
     justify-content: space-between; }
     .wrapper-component-rsvp-form .wrapper-question .wrapper-horizontal-questions .wrapper-horizontal-question {
       width: 49%; }
+  .wrapper-component-rsvp-form .wrapper-question label {
+    font-size: 14px; }
+    @media (max-width: 500px) {
+      .wrapper-component-rsvp-form .wrapper-question label {
+        text-align: center; } }
   .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer {
     display: flex; }
     .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer label {
       margin-right: 30px;
       display: flex;
       align-items: center; }
+    @media (max-width: 660px) {
+      .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; } }
+    @media (max-width: 540px) {
+      .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer .wrapper-radio-buttons-inner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; } }
     .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer .wrapper-radio-buttons-inner {
       display: flex; }
       .wrapper-component-rsvp-form .wrapper-question.wrapper-radio-buttons-outer .wrapper-radio-buttons-inner input[type='radio'] {

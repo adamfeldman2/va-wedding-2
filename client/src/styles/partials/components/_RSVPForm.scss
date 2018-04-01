@@ -13,6 +13,14 @@
       }
     }
 
+    label {
+      font-size: 14px;
+
+      @media (max-width: 500px) {
+        text-align: center;
+      }
+    }
+
     &.wrapper-radio-buttons-outer {
       display: flex;
 
@@ -20,6 +28,20 @@
         margin-right: 30px;
         display: flex;
         align-items: center;
+      }
+
+      @media (max-width: 660px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 540px) {
+        .wrapper-radio-buttons-inner {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
       }
 
       .wrapper-radio-buttons-inner {
