@@ -198,7 +198,7 @@ class RSVPForm extends React.Component {
   render() {
     return (
       <div className={`wrapper-component-rsvp-form ${this.state.sent ? 'sent' : ''}`}>
-        <h2>{this.state.sent ? 'RSVP Received!' : 'Please RSVP by May 15, 2018'}</h2>
+        <h2>{this.state.sent ? 'RSVP Received!' : 'Please RSVP by May 31, 2018'}</h2>
 
         {this.state.sent ? (
           <div className="wrapper-rsvp-sent-content">
