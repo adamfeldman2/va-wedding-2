@@ -277,7 +277,7 @@ class RSVPForm extends React.Component {
                   >
                     <input id="radio-chicken-beef-1" type="radio" name="g1Dinner" value="chicken/beef" />
                     <label htmlFor="radio-chicken-beef-1">
-                      Chicken/Beef<span className="radio-heart" />
+                      Chicken &amp; Beef<span className="radio-heart" />
                     </label>
                     <input id="radio-salmon-1" type="radio" name="g1Dinner" value="salmon" />
                     <label htmlFor="radio-salmon-1">
@@ -326,7 +326,7 @@ class RSVPForm extends React.Component {
                       >
                         <input id="radio-chicken-beef-2" type="radio" name="g2Dinner" value="chicken/beef" />
                         <label htmlFor="radio-chicken-beef-2">
-                          Chicken/Beef<span className="radio-heart" />
+                          Chicken &amp; Beef<span className="radio-heart" />
                         </label>
                         <input id="radio-salmon-2" type="radio" name="g2Dinner" value="salmon" />
                         <label htmlFor="radio-salmon-2">
