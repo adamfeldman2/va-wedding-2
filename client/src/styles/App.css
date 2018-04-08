@@ -262,11 +262,25 @@ body {
       display: none; } }
 
 .wrapper-component-footer {
-  display: none;
-  position: absolute;
-  bottom: 16px; }
-  .wrapper-component-footer p {
-    text-align: center; }
+  position: fixed;
+  bottom: 0;
+  font-size: 10.1px;
+  padding: 7.8px 0px;
+  background-color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1c1c1c;
+  text-transform: uppercase;
+  transition: 0.14s; }
+  .wrapper-component-footer:hover {
+    background-color: rgba(28, 28, 28, 0.6);
+    color: #fff; }
+  @media (max-width: 800px) {
+    .wrapper-component-footer {
+      display: none; } }
 
 .wrapper-component-header {
   display: flex;

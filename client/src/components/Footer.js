@@ -2,20 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="wrapper-component-footer">
-      <span>
-        Built by:{' '}
-        <a
-          href="http://adamfeldman.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          The Groom
-        </a>
-      </span>
-
-      <span>Design inspiration by: Sqaurespace</span>
-    </div>
+    <a className="wrapper-component-footer" href="https://adamcodes.ca" target="_blank" rel="noopener noreferrer">
+      Website by: The Groom
+    </a>
   );
 };
 
