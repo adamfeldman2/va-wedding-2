@@ -22,7 +22,7 @@
   }
 
   .wrapper-page-template-content-box {
-    background-color: $white;
+    background-color: transparentize($white, 0.11);
   }
 
   @media (max-width: 865px) {

@@ -82,12 +82,12 @@
       width: 100%;
       outline: 0;
       border: 1px solid $grey-2;
-      background-color: $grey-1;
+      background-color: transparentize($grey-1, 0.3);
       transition: background-color 0.3s;
       margin: 4px 0 10px;
 
       &:focus {
-        background-color: $white;
+        background-color: transparentize($white, 0.2);
       }
     }
 

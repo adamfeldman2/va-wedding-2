@@ -193,12 +193,12 @@ ul {
 
 body {
   color: #272727;
-  background-image: url("../assets/images/bg.jpg");
+  background-image: url("../assets/images/bg_image.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100vh;
-  background-position: center;
+  background-position: center 80%;
   font-family: "Lato", sans-serif; }
 
 .wrapper {
@@ -248,7 +248,7 @@ body {
     flex-direction: column-reverse;
     padding: 0 20px; }
     .wrapper-countdown .cell-wrapper-countdown div {
-      font-size: 1.5em;
+      font-size: 1.38em;
       font-weight: 300;
       letter-spacing: 3px;
       margin-bottom: 2px; }
@@ -265,8 +265,8 @@ body {
   position: fixed;
   bottom: 0;
   font-size: 10.1px;
-  padding: 7.8px 0px;
-  background-color: rgba(255, 255, 255, 0.6);
+  padding: 7.5px 0px;
+  background-color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.4px;
   width: 100%;
   display: flex;
@@ -373,7 +373,7 @@ body {
       letter-spacing: 3px;
       margin: 7px 0 85px; }
   .wrapper-component-page-template .wrapper-page-template-content-box {
-    background-color: #fff; }
+    background-color: rgba(255, 255, 255, 0.89); }
   @media (max-width: 865px) {
     .wrapper-component-page-template .wrapper-page-template-title h1 {
       padding: 0 4%; }
@@ -440,12 +440,12 @@ body {
     width: 100%;
     outline: 0;
     border: 1px solid #ccc;
-    background-color: #fafafa;
+    background-color: rgba(250, 250, 250, 0.7);
     transition: background-color 0.3s;
     margin: 4px 0 10px; }
     .wrapper-component-rsvp-form .wrapper-question textarea:focus,
     .wrapper-component-rsvp-form .wrapper-question input:focus {
-      background-color: #fff; }
+      background-color: rgba(255, 255, 255, 0.8); }
   .wrapper-component-rsvp-form .wrapper-question input {
     box-sizing: border-box; }
 
@@ -613,15 +613,16 @@ body {
 .wrapper-page-home {
   position: absolute;
   right: 50%;
-  bottom: 49%;
+  bottom: 56%;
   transform: translate(50%);
   width: 100%; }
   .wrapper-page-home .wrapper-content-home {
     color: #1c1c1c; }
     .wrapper-page-home .wrapper-content-home h1 {
+      text-transform: uppercase;
       text-align: center;
       font-weight: 100;
-      font-size: 6em;
+      font-size: 4.9em;
       padding: 0 5%;
       margin: 0; }
     .wrapper-page-home .wrapper-content-home h5 {
@@ -655,19 +656,6 @@ body {
       transition: box-shadow 0.1s linear; }
       .wrapper-page-home .wrapper-confetti .button:hover {
         box-shadow: 0px 0px 4px rgba(28, 28, 28, 0.35); }
-  @media (max-width: 826px) {
-    .wrapper-page-home .wrapper-content-home h1 {
-      margin-bottom: 22px; } }
-  @media (max-width: 500px) {
-    .wrapper-page-home .wrapper-content-home h1 {
-      font-size: 4.2em; }
-    .wrapper-page-home .wrapper-content-home h5 {
-      display: block; }
-    .wrapper-page-home .wrapper-confetti {
-      top: 32px; }
-      .wrapper-page-home .wrapper-confetti .button {
-        font-size: 0.72em;
-        padding: 13px 28px; } }
   .wrapper-page-home .button-rsvp {
     display: flex;
     justify-content: center;
@@ -687,4 +675,17 @@ body {
       color: #fff; }
   @media (max-width: 500px) {
     .wrapper-page-home {
-      bottom: 46%; } }
+      bottom: 56%; }
+      .wrapper-page-home .wrapper-content-home h1 {
+        font-size: 3.4em; }
+      .wrapper-page-home .wrapper-content-home h5 {
+        display: block; }
+      .wrapper-page-home .wrapper-confetti {
+        top: 32px; }
+        .wrapper-page-home .wrapper-confetti .button {
+          font-size: 0.72em;
+          padding: 13px 28px; }
+      .wrapper-page-home .button-rsvp {
+        width: 130px;
+        padding: 10px 0;
+        font-size: 0.92em; } }
