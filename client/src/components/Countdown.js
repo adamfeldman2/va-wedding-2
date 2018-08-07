@@ -39,7 +39,7 @@ class CountDown extends React.Component {
     const minutes = Math.floor(
       (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
     );
-    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    const seconds = Math.ceil((timeRemaining % (1000 * 60)) / 1000);
 
     this.setState(() => {
       return {
@@ -54,21 +54,24 @@ class CountDown extends React.Component {
   render() {
     return (
       <div className="wrapper-countdown wrapper">
-        <div className="cell-wrapper-countdown days">
-          <h3>Days</h3>
-          <div>{this.state.days}</div>
-        </div>
-        <div className="cell-wrapper-countdown hours">
-          <h3>Hours</h3>
-          <div>{this.state.hours}</div>
-        </div>
-        <div className="cell-wrapper-countdown minutes">
-          <h3>Minutes</h3>
-          <div>{this.state.minutes}</div>
-        </div>
-        <div className="cell-wrapper-countdown seconds">
-          <h3>Seconds</h3>
-          <div>{this.state.seconds}</div>
+        <div className="married-for">Have been married for...</div>
+        <div className="inner-wrapper-countdown">
+          <div className="cell-wrapper-countdown days">
+            <h3>Days</h3>
+            <div>{Math.abs(this.state.days)}</div>
+          </div>
+          <div className="cell-wrapper-countdown hours">
+            <h3>Hours</h3>
+            <div>{Math.abs(this.state.hours)}</div>
+          </div>
+          <div className="cell-wrapper-countdown minutes">
+            <h3>Minutes</h3>
+            <div>{Math.abs(this.state.minutes)}</div>
+          </div>
+          <div className="cell-wrapper-countdown seconds">
+            <h3>Seconds</h3>
+            <div>{Math.abs(this.state.seconds)}</div>
+          </div>
         </div>
       </div>
     );

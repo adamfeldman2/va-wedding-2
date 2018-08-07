@@ -1,8 +1,19 @@
 .wrapper-countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 10px;
+  
+  .married-for {
+    display: block;
+    text-align: center;
+    margin: 11px 0 21px;
+    font-size: 1.25em;
+    font-weight: 300;
+  }
+  
+  .inner-wrapper-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .cell-wrapper-countdown {
     display: flex;
