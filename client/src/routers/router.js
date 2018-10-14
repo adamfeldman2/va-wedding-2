@@ -7,7 +7,6 @@ import RSVP from '../pages/RSVP';
 import Contact from '../pages/Contact';
 import FourOhFour from '../pages/FourOhFour';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 const Router = () => {
   return (
@@ -22,7 +21,6 @@ const Router = () => {
           <Route exact path="/contact" component={Contact} />
           <Route component={FourOhFour} />
         </Switch>
-        <Footer />
       </div>
     </BrowserRouter>
   );
